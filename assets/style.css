@@ -1,0 +1,89 @@
+/* 刻詠みアラーム サポートサイト共通スタイル。外部フォント・外部CDNは使わない。 */
+:root {
+  --bg: #fbfbfd;
+  --surface: #ffffff;
+  --text: #1d1d1f;
+  --muted: #55555c;
+  --line: #dcdce2;
+  --accent: #33409a;
+  --accent-soft: #eef0fb;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111114;
+    --surface: #1b1b20;
+    --text: #f2f2f5;
+    --muted: #b4b4bd;
+    --line: #34343c;
+    --accent: #a9b2ff;
+    --accent-soft: #23253a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  font-size: 17px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.skip { position: absolute; left: -999px; top: 0; }
+.skip:focus { left: 16px; top: 8px; background: var(--surface); padding: 6px 10px; z-index: 10; }
+
+.site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
+.site-header .inner, main, .site-footer .inner { max-width: 720px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+.site-header .inner { padding-top: 14px; padding-bottom: 10px; }
+.site-title { display: inline-block; font-size: 1.05rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: 0.06em; }
+.site-nav ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 6px; }
+.site-nav a { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 0.9rem; text-decoration: none; color: var(--muted); }
+.site-nav a:hover { color: var(--accent); background: var(--accent-soft); }
+.site-nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+
+main { padding-top: 28px; padding-bottom: 48px; }
+h1 { font-size: 1.6rem; line-height: 1.45; margin: 0 0 0.6em; letter-spacing: 0.04em; }
+h2 { font-size: 1.2rem; line-height: 1.5; margin: 2.2em 0 0.6em; border-top: 1px solid var(--line); padding-top: 1.2em; }
+h3 { font-size: 1.05rem; line-height: 1.6; margin: 1.8em 0 0.4em; }
+p, ul, ol { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 0.25em 0; }
+.lead { font-size: 1.05rem; color: var(--muted); }
+.note { color: var(--muted); font-size: 0.95rem; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin: 0 0 1.2em; }
+.contact { background: var(--accent-soft); border: 0; }
+.contact p { margin: 0; }
+.mail { display: inline-block; font-weight: 600; font-size: 1.05rem; word-break: normal; overflow-wrap: normal; }
+
+.menu { list-style: none; padding: 0; margin: 1.4em 0; display: grid; gap: 10px; }
+.menu a { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; text-decoration: none; color: var(--text); }
+.menu a:hover { border-color: var(--accent); }
+.menu strong { display: block; color: var(--accent); font-size: 1.05rem; }
+.menu span { color: var(--muted); font-size: 0.93rem; }
+
+.toc { font-size: 0.95rem; }
+.toc ul { margin-bottom: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 0 0 1.2em; font-size: 0.97rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 0.9rem; }
+dl.meta { display: grid; grid-template-columns: max-content 1fr; gap: 2px 16px; margin: 0 0 1.4em; font-size: 0.97rem; }
+dl.meta dt { color: var(--muted); }
+dl.meta dd { margin: 0; }
+
+.site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+.site-footer .inner { padding-top: 20px; padding-bottom: 32px; }
+.site-footer ul { list-style: none; padding: 0; margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.site-footer a { color: var(--muted); }
+
+@media (min-width: 640px) {
+  body { font-size: 17.5px; }
+  h1 { font-size: 1.85rem; }
+  .menu { grid-template-columns: 1fr 1fr; }
+}
